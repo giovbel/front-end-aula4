@@ -11,18 +11,21 @@
     align-items: center;
     padding: 16px;
     gap: 16px;
+    border-radius: 10px;
+    background-color: rgb(150, 234, 150);
 }
 
 .item{
     background-color: rgb(49, 71, 47);
     height: 50px;
-    width: 80%;
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 16px;
     color: white;
     padding: 0px 16px;
+    border-radius: 10px;
 }
 
 .numeros{
@@ -30,15 +33,19 @@
     padding: 0px 4px;
     display: flex;
     gap: 8px;
+    border-radius: 10px;
 }
 
 .numeros span{
     background-color: rgb(90, 151, 131);
     width: 50px;
     text-align: center;
+    border-radius: 10px;
 }
 
 button{
     padding: 0px 8px;
+    border-radius: 4px;
+    color: rgb(66, 74, 59);
 
 }

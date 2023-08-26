@@ -2,30 +2,28 @@
 
 const botaoMostrarNumeros = document.getElementById('botao-mostrar-numeros')
 const botaoMostrarNumerosPares = document.getElementById('botao-mostrar-numeros-pares')
-const botaoMostrarTriplos = document.getElementById('botao-mostrar-numeros-triplos')
+const botaoMostrarTriplo = document.getElementById('botao-mostrar-numeros-triplos')
 const botaoMostrarProximoImpar = document.getElementById('botao-mostrar-proximo-impar')
-const botaoMostrarMultiplo = document.getElementById('botao-mostrar-multiplo')
+const botaoMostrarMultiploE = document.getElementById('botao-mostrar-multiplos')
+const botaoMostrarMultiplo = document.getElementById('botao-mostrar-multiplos-ou')
 
 function mostrarNumeros() {
 
-    const numeros = document.getElementById('numeros').value.split(',')  //transforma o contéudo do input em um vetor, string separada por ','
+    const numeros = document.getElementById('numeros').value.split(',') 
     const container = document.getElementById('container-mostrar-numeros')
 
     container.replaceChildren('')
     const ultimoIndice = numeros.length
-    
-    for (let contador = 0; contador < ultimoIndice; contador++) {
-        if (numeros[contador] != '') {
-            const novaSpan = document.createElement('span')  
+
+        for (let contador=0; contador < ultimoIndice; contador++){
+            const novaSpan = document.createElement('span')
             novaSpan.textContent = numeros[contador]
             container.appendChild(novaSpan)
         }
 
     }
 
-}
-
-////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
 function mostrarNumerosPares() {
 
@@ -35,16 +33,16 @@ function mostrarNumerosPares() {
     container.replaceChildren('')
     const ultimoIndice = numeros.length
     for (let contador = 0; contador < ultimoIndice; contador++) {
-        if (numeros[contador] % 2 == 0 && numeros[contador] != '') {
-            const novaSpan = document.createElement('span')
-            novaSpan.textContent = numeros[contador]
-            container.appendChild(novaSpan)
+        if (numeros[contador] % 2 == 0) {
+            const novoSpan = document.createElement('span')
+            novoSpan.textContent = numeros[contador]
+            container.appendChild(novoSpan)
         }
 
     }
 }
 
-///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
 
 function mostrarTriplo() {
 
@@ -54,13 +52,13 @@ function mostrarTriplo() {
     container.replaceChildren('')
     const ultimoIndice = numeros.length
     for (let contador = 0; contador < ultimoIndice; contador++) {
-        const novaSpan = document.createElement('span')
-        novaSpan.textContent = (numeros[contador] * 3)
-        container.appendChild(novaSpan)
+        const novoSpan = document.createElement('span')
+        novoSpan.textContent = (numeros[contador] * 3)
+        container.appendChild(novoSpan)
     }
 }
 
-///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
 
 function mostrarProximoImpar() {
 
@@ -70,43 +68,61 @@ function mostrarProximoImpar() {
     container.replaceChildren('')
     const ultimoIndice = numeros.length
     for (let contador = 0; contador < ultimoIndice; contador++) {
-        if (numeros[contador] % 2 == 0 ) {
-            const novaSpan = document.createElement('span')
-            novaSpan.textContent = (Number(numeros[contador]) + 1)
-            container.appendChild(novaSpan)
-
+        if (numeros[contador] % 2 == 0) {
+            const novoSpan = document.createElement('span')
+            novoSpan.textContent = (Number(numeros[contador]) + 1)
+            container.appendChild(novoSpan)
         } else {
-            const novaSpan = document.createElement('span')
-            novaSpan.textContent = (Number(numeros[contador]) + 2)
-            container.appendChild(novaSpan)
+            const novoSpan = document.createElement('span')
+            novoSpan.textContent = (Number(numeros[contador]) + 2)
+            container.appendChild(novoSpan)
         }
     }
 }
 
-///////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+function mostrarMultiploE() {
+
+    const numeros = document.getElementById('numeros').value.split(',')
+    const container = document.getElementById('container-mostrar-multiplos')
+
+    container.replaceChildren('')
+    const ultimoIndice = numeros.length
+    for (let contador = 0; contador < ultimoIndice; contador++) {
+        if (numeros[contador] % 5 == 0 && numeros[contador] % 3 == 0) {
+            const novoSpan = document.createElement('span')
+            novoSpan.textContent = numeros[contador]
+            container.appendChild(novoSpan)
+        }
+
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
 function mostrarMultiplo() {
 
     const numeros = document.getElementById('numeros').value.split(',')
-    const container = document.getElementById('container-mostrar-multiplo')
+    const container = document.getElementById('container-mostrar-multiplos-ou')
 
-    const ultimoIndice = numeros.length
     container.replaceChildren('')
-    for(let contador = 0; contador < ultimoIndice; contador ++){
-       if(numeros[contador] % 3 == 0 && numeros[contador] % 5 == 0){
-           const novaSpan = document.createElement('span')
-           novaSpan.textContent = numeros[contador]
-           container.appendChild(novaSpan)
+    const ultimoIndice = numeros.length
+    for (let contador = 0; contador < ultimoIndice; contador++) {
+        if (numeros[contador] % 5 == 0  || numeros[contador] % 3 == 0) {
+            const novoSpan = document.createElement('span')
+            novoSpan.textContent = numeros[contador]
+            container.appendChild(novoSpan)
         }
 
     }
 }
 
-/////////////////////////////////////////////////////////////////////////////////
-
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 botaoMostrarNumeros.addEventListener('click', mostrarNumeros)
 botaoMostrarNumerosPares.addEventListener('click', mostrarNumerosPares)
-botaoMostrarTriplos.addEventListener('click', mostrarTriplo)
+botaoMostrarTriplo.addEventListener('click', mostrarTriplo)
 botaoMostrarProximoImpar.addEventListener('click', mostrarProximoImpar)
+botaoMostrarMultiploE.addEventListener('click', mostrarMultiploE)
 botaoMostrarMultiplo.addEventListener('click', mostrarMultiplo)
